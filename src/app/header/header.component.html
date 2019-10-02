@@ -1,9 +1,17 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <div><a href="/" class="navbar-brand">E-SAS Task Manager</a></div>
+    <div><a href="/" class="navbar-brand">E-SAS Task Manager</a></div>
 
-      <ul class="navbar-nav">
-        <li><a  routerLink="/tasks" class="nav-link">Tasks</a></li>
-      </ul>
+    <ul class="navbar-nav">
+      <li>
+        <a *ngIf="!!loginService.isUserLoggedIn()" routerLink="/tasks" class="nav-link">Tasks</a>
+      </li>
+      <li>
+        <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a>
+      </li>
+      <li>
+        <a *ngIf="!!loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a>
+      </li>
+    </ul>
   </nav>
 </header>
