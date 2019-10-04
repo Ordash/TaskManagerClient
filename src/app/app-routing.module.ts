@@ -1,15 +1,16 @@
-import { TaskListComponent } from './task-list/task-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { AuthGuardService } from './service/auth/auth-guard.service';
+
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './helpers/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'tasks', pathMatch: 'full' },
+  { path: '', component: TaskListComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
-  { path: 'tasks', component: TaskListComponent, canActivate: [AuthGuardService] }
+
+  // otherwise redirect to home
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
