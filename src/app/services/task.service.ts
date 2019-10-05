@@ -2,19 +2,22 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Task } from '../models/task';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  taskUrl: string;
 
   constructor(private http: HttpClient) {
-    this.taskUrl = 'http://localhost:8080/task';
   }
 
-  public findAll(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.taskUrl);
+  getAll(): Observable<Task[]> {
+    return this.http.get<Task[]>(`${environment.apiUrl}/api/task/all`);
+  }
+
+  getCreated(): Observable<Task[]> {
+    return this.http.get<Task[]>(`${environment.apiUrl}/api/task/created`);
   }
 
 }

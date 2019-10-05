@@ -23,12 +23,9 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    let headers = new HttpHeaders();
-    headers = headers.append('Authorization', 'Basic ' + btoa(username + ':' + password));
-    console.log(headers.get('Authorization'));
-
-    return this.http.get<any>(`${environment.apiUrl}/api/user/auth`, { headers }).pipe(
+    return this.http.post<any>(`${environment.apiUrl}/authenticate`, { username, password }).pipe(
       map(user => {
+        console.log('cicaaaaaaaaa');
         // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
         user.authdata = window.btoa(username + ':' + password);
         console.log(user.authdata);

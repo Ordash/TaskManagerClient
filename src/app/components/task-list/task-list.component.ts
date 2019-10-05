@@ -2,6 +2,7 @@ import { TaskService } from '../../services/task.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { Task } from '../../models/task';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-task-list',
@@ -13,8 +14,8 @@ export class TaskListComponent implements OnInit {
   constructor(private taskService: TaskService) {}
 
   ngOnInit() {
-    this.taskService.findAll().subscribe(data => {
-      this.tasks = data;
+    this.taskService.getAll().pipe(first()).subscribe(tasks => {
+      this.tasks = tasks;
     });
   }
 }
