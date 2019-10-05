@@ -4,7 +4,10 @@
 
     <ul *ngIf="currentUser" class="navbar-nav">
       <li>
-        <a class="nav-link nav-item" routerLink="/tasks">Tasks</a>
+        <a class="nav-link nav-item" routerLink="/all">All</a>
+      </li>
+      <li>
+        <a class="nav-link nav-item" routerLink="/created">Created</a>
       </li>
       <li>
         <a class="nav-link nav-item" (click)="logout()">LogOut</a>
