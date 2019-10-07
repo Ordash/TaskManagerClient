@@ -11,7 +11,7 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { BasicAuthInterceptor } from './helpers/basic-auth.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
-import { TaskListCreatedComponent } from './components/task-list-created/task-list-created.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { TaskListCreatedComponent } from './components/task-list-created/task-li
     FooterComponent,
     TaskListComponent,
     LoginComponent,
-    TaskListCreatedComponent
+    CreateTaskComponent
   ],
   imports: [
     BrowserModule,

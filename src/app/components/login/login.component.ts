@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('LOGINCOMPONENT INIT');
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -41,7 +40,6 @@ export class LoginComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get f() {
-    console.log('FORMCONTROL GETTER');
     return this.loginForm.controls;
   }
 
@@ -52,7 +50,6 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    console.log('ONSUBMIT VALID');
     this.loading = true;
     this.authenticationService
       .login(this.f.username.value, this.f.password.value)
@@ -62,7 +59,6 @@ export class LoginComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         error => {
-          console.log(error);
           this.error = error;
           this.loading = false;
         }

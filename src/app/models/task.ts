@@ -10,4 +10,8 @@ export class Task {
   deadline: Date;
   assigneeID: number;
   creationDate: Date;
+
+  public constructor(init?: Partial<Task>) {
+    Object.assign(this, init);
+  }
 }
