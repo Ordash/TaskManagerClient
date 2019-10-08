@@ -12,6 +12,7 @@ export class Task {
   creationDate: Date;
 
   public constructor(init?: Partial<Task>) {
+    this.status = 'TODO';
     Object.assign(this, init);
   }
 }

@@ -29,8 +29,8 @@ export class CreateTaskComponent implements OnInit {
   ngOnInit() {
     this.taskFormGroup = this.formBuilder.group({
       title: ['', Validators.required],
-      description: ['']
-      // priority: ['', Validators.required],
+      description: [''],
+      priority: ['', Validators.required],
       // status: ['', Validators.required],
       // deadline: ['', Validators.required],
       // assignee: ['', Validators.required],
